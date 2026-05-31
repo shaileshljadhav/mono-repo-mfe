@@ -75,3 +75,5 @@ npx -p @angular/cli@19 ng g @angular-architects/module-federation:init-webpack -
 npx -p @angular/cli@19 ng g @angular-architects/module-federation:init-webpack --project product --type remote --port 4201 --skip-confirmation 
 
 npx -p @angular/cli@19 ng g @angular-architects/module-federation:init-webpack --project account --type remote --port 4202 --skip-confirmation 
+
+npm run run:all -- shell product account 

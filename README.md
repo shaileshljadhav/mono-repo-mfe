@@ -78,7 +78,13 @@ npx -p @angular/cli@19 ng g @angular-architects/module-federation:init-webpack -
 
 npx -p @angular/cli@19 ng g @angular-architects/module-federation:init-webpack --project account --type remote --port 4202 --skip-confirmation 
 
-Configure routes as:
+Fix in shell app i.e host remotes emtries
+  remotes: {
+    "product": "http://localhost:4201/remoteEntry.js",
+    "account": "http://localhost:4202/remoteEntry.js",    
+  }
+
+Configure routes in shell app as:
 
 { 
     path: 'product', 

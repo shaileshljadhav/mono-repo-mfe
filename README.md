@@ -76,4 +76,25 @@ npx -p @angular/cli@19 ng g @angular-architects/module-federation:init-webpack -
 
 npx -p @angular/cli@19 ng g @angular-architects/module-federation:init-webpack --project account --type remote --port 4202 --skip-confirmation 
 
+Configure routes as:
+
+{ 
+    path: 'product', 
+    loadComponent: () =>
+        loadRemoteModule({
+            type: 'module',
+            remoteEntry: 'http://localhost:4201/remoteEntry.js',
+            exposedModule: './Component',
+        }).then((m) => m.AppComponent),
+},
+{ 
+    path: 'account', 
+    loadComponent: () =>
+        loadRemoteModule({
+            type: 'module',
+            remoteEntry: 'http://localhost:4202/remoteEntry.js',
+            exposedModule: './Component',
+        }).then((m) => m.AppComponent),
+},
+
 npm run run:all -- shell product account 

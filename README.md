@@ -64,3 +64,6 @@ npx -p @angular/cli@19 ng new mono-repo-mfe --create-application false --package
 cd mono-repo-mfe 
 
 npx -p @angular/cli@19 ng g application shell --routing --style=scss 
+
+npx -p @angular/cli@19 ng g application product --routing --style=scss 
+npx -p @angular/cli@19 ng g application account --routing --style=scss 

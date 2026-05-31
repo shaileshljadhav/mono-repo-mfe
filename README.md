@@ -73,3 +73,5 @@ npm i @angular-architects/module-federation@19
 npx -p @angular/cli@19 ng g @angular-architects/module-federation:init-webpack --project shell --type host --port 4200 --skip-confirmation 
 
 npx -p @angular/cli@19 ng g @angular-architects/module-federation:init-webpack --project product --type remote --port 4201 --skip-confirmation 
+
+npx -p @angular/cli@19 ng g @angular-architects/module-federation:init-webpack --project account --type remote --port 4202 --skip-confirmation 

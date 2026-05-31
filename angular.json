@@ -228,11 +228,10 @@
 			"prefix": "app",
 			"architect": {
 				"build": {
-					"builder": "@angular-devkit/build-angular:application",
+					"builder": "ngx-build-plus:browser",
 					"options": {
 						"outputPath": "dist/account",
 						"index": "projects/account/src/index.html",
-						"browser": "projects/account/src/main.ts",
 						"polyfills": [
 							"zone.js"
 						],
@@ -241,13 +240,17 @@
 						"assets": [
 							{
 								"glob": "**/*",
-								"input": "projects/account/public"
+								"input": "projects/account/public",
+								"output": "."
 							}
 						],
 						"styles": [
 							"projects/account/src/styles.scss"
 						],
-						"scripts": []
+						"scripts": [],
+						"main": "projects/account/src/main.ts",
+						"extraWebpackConfig": "projects/account/webpack.config.js",
+						"commonChunk": false
 					},
 					"configurations": {
 						"production": {
@@ -263,7 +266,8 @@
 									"maximumError": "8kB"
 								}
 							],
-							"outputHashing": "all"
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/account/webpack.prod.config.js"
 						},
 						"development": {
 							"optimization": false,
@@ -274,16 +278,22 @@
 					"defaultConfiguration": "production"
 				},
 				"serve": {
-					"builder": "@angular-devkit/build-angular:dev-server",
+					"builder": "ngx-build-plus:dev-server",
 					"configurations": {
 						"production": {
-							"buildTarget": "account:build:production"
+							"buildTarget": "account:build:production",
+							"extraWebpackConfig": "projects/account/webpack.prod.config.js"
 						},
 						"development": {
 							"buildTarget": "account:build:development"
 						}
 					},
-					"defaultConfiguration": "development"
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4202,
+						"publicHost": "http://localhost:4202",
+						"extraWebpackConfig": "projects/account/webpack.config.js"
+					}
 				},
 				"extract-i18n": {
 					"builder": "@angular-devkit/build-angular:extract-i18n"

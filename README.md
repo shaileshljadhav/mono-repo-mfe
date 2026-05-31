@@ -69,3 +69,5 @@ npx -p @angular/cli@19 ng g application product --routing --style=scss
 npx -p @angular/cli@19 ng g application account --routing --style=scss 
 
 npm i @angular-architects/module-federation@19 
+
+npx -p @angular/cli@19 ng g @angular-architects/module-federation:init-webpack --project shell --type host --port 4200 --skip-confirmation 
